@@ -1,7 +1,7 @@
 <template>
     <header>
         <img src="/public/images/png-clipart-yu-gi-oh-power-of-chaos-yugi-the-destiny-yu-gi-oh-the-sacred-cards-yugi-mutou-bakura-yu-miscellaneous-game.png" alt="logo" />
-        <h1>Vue.js 3</h1>
+        <h1>Yu-Gi-Oh!</h1>
     </header>
 </template>
 
@@ -28,7 +28,7 @@ header {
     //h1 style
     h1 {
         font-size: 1.5rem;
-        margin-right: 10px;
+        margin-left: 10px;
     }
     //img style
     img {
