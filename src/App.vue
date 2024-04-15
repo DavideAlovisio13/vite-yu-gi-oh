@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { store } from './data/store.js';
   export default {
     name: 'App',
@@ -11,6 +12,11 @@ import { store } from './data/store.js';
         store: store
       }
     },
+    created() {
+      axios.get(this.store.apiUrl).then(response => {
+        console.log(response.data.data);
+      });
+    }
   }
 </script>
 
