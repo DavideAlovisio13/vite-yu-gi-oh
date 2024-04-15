@@ -4,9 +4,11 @@
     <div class="card-body">
       <h5 class="card-title">{{ name }}</h5>
       <ul>
-        <li>Type: {{ type }}</li>
-        <li>Frame Type: {{ frameType }}</li>
-        <li>Description: {{ desc }}</li>
+        <li><strong>Type:</strong> {{ type }}</li>
+        <li><strong>Frame Type:</strong> {{ frameType }}</li>
+        <li><strong>Archetype:</strong> {{ archetype }}</li>
+        <li><strong>Description:</strong> {{ desc }}</li>
+        <li><strong>Best Price:</strong> {{ price[0].cardmarket_price }} $</li>
       </ul>
       <a href="#" class="btn btn-primary">Buy now</a>
     </div>
@@ -16,7 +18,7 @@
 <script>
 export default {
   name: "CardComponent",
-  props: ["id", "name", "type", "frameType", "desc", "img", "archetype"],
+  props: ["id", "name", "type", "frameType", "desc", "img", "archetype", "price"],
   data() {
     return {
     };
