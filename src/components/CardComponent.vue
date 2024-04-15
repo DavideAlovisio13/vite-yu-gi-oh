@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="..." />
+<div class="card">
+    <img src="" class="" alt="..." />
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">
@@ -16,7 +16,11 @@
 export default {
   name: "CardComponent",
   data() {
-    return {};
+    return {
+    };
+  },
+  methods: {
+    
   },
 };
 </script>

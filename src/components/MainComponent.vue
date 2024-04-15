@@ -3,7 +3,7 @@
         <div class="container debug">
             <div class="row">
                 <div class="col12 col-md-6 col-lg-3">
-                    <CardComponent />
+                    <CardComponent v-for="(item, index) in store.data" :key="index"/>
                 </div>
             </div>
         </div>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import {store} from '../data/store.js';
 import CardComponent from './CardComponent.vue';
     export default {
         name: 'MainComponent',
@@ -19,6 +20,7 @@ import CardComponent from './CardComponent.vue';
         },
         data() {
             return {
+                store: store
             }
         }
     }

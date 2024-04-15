@@ -23,7 +23,8 @@ import CardComponentVue from './components/CardComponent.vue';
     },
     created() {
       axios.get(this.store.apiUrl).then(response => {
-        console.log(response.data.data);
+        this.store.data = response.data.data;
+        console.log(this.store.data);
       });
     }
   }
