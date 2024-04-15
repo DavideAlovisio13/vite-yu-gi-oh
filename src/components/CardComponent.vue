@@ -2,10 +2,9 @@
 <div class="card">
     <img src="" class="" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <h5 class="card-title">{{ name }}</h5>
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        {{ desc }}
       </p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
@@ -15,6 +14,7 @@
 <script>
 export default {
   name: "CardComponent",
+  props: ["id", "name", "type", "frameType", "desc", "img"],
   data() {
     return {
     };

@@ -10,6 +10,7 @@ import axios from 'axios';
 import { store } from './data/store.js';
 import MainComponentVue from './components/MainComponent.vue';
 import CardComponentVue from './components/CardComponent.vue';
+import { createApp } from 'vue';
   export default {
     name: 'App',
     components: {
@@ -23,8 +24,8 @@ import CardComponentVue from './components/CardComponent.vue';
     },
     created() {
       axios.get(this.store.apiUrl).then(response => {
-        this.store.data = response.data.data;
-        console.log(this.store.data);
+        this.store.cards = response.data.data;
+        // console.log(this.store.cards);
       });
     }
   }

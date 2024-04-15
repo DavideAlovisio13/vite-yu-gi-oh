@@ -2,8 +2,8 @@
     <main>
         <div class="container debug">
             <div class="row">
-                <div class="col12 col-md-6 col-lg-3">
-                    <CardComponent v-for="(item, index) in store.data" :key="index"/>
+                <div class="col12 col-md-6 col-lg-3" v-for="(item, index) in store.cards" :key="index">
+                    <CardComponent :id="item.id" :name="item.name" :type="item.type" :frameType="item.frameType" :desc="item.desc" :img="item.card_images.image-url" />
                 </div>
             </div>
         </div>
@@ -22,6 +22,11 @@ import CardComponent from './CardComponent.vue';
             return {
                 store: store
             }
+        },
+        methods: {
+        },
+        mounted() {
+            // console.log(CardComponent);
         }
     }
 </script>
