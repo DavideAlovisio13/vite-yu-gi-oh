@@ -24,6 +24,7 @@ header {
     background-color: #333;
     color: $color-black;
     padding: 10px;
+    height: 60px;
     //h1 style
     h1 {
         font-size: 1.5rem;
