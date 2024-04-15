@@ -9,6 +9,7 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import axios from 'axios';
 import { store } from './data/store.js';
 import MainComponentVue from './components/MainComponent.vue';
+import CardComponentVue from './components/CardComponent.vue';
   export default {
     name: 'App',
     components: {

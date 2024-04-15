@@ -3,7 +3,7 @@
         <div class="container debug">
             <div class="row">
                 <div class="col12 col-md-6 col-lg-3">
-                    
+                    <CardComponent />
                 </div>
             </div>
         </div>
@@ -11,8 +11,12 @@
 </template>
 
 <script>
+import CardComponent from './CardComponent.vue';
     export default {
         name: 'MainComponent',
+        components: {
+            CardComponent
+        },
         data() {
             return {
             }
