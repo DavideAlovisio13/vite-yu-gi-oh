@@ -1,13 +1,16 @@
 <template>
-  <div>
-    <h1 class="text-center">La Molisana</h1>
-    <i class="fas fa-spinner fa-pulse"></i>
-  </div>
+  
 </template>
 
 <script>
+import { store } from './data/store.js';
   export default {
     name: 'App',
+    data() {
+      return {
+        store: store
+      }
+    },
   }
 </script>
 
