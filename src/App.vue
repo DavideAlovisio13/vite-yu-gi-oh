@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent v-if="!store.loading" @select-type="getCards()"/>
+  <HeaderComponent v-if="!store.loading" />
   <MainComponent v-if="!store.loading" />
   <LoaderComponent v-else />
 </template>
