@@ -64,15 +64,20 @@ export default {
       object-fit: contain;
     }
     .card-bodyl {
+      color: azure;
       position: absolute;
       padding: 1rem 0;
       border-radius: 10px;
       border: 5px solid $color-black;
-      background-color: $color-bg;
+      background-image: url("/public/images/87478-large_default.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       transform: rotateY(180deg);
       max-height: 0;
       opacity: 0;
       overflow-y: auto;
+      
       h5 {
         margin: 0.5rem;
       }
@@ -87,6 +92,7 @@ export default {
   }
   &:hover .card-bodyl {
     transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 410px;
     max-width: 500px;
     max-height: 410px;
     opacity: 1;
