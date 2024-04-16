@@ -25,7 +25,9 @@ import { store } from './data/store.js';
     },
     methods: {
       getArchetypes() {
-        
+        axios.get(this.store.apiUrl + this.store.attributes.cardArchetypes).then(res => {
+        this.store.cardArchetypes = res.data;
+      });
       },
       getCards() {
         this.store.loading = true;
@@ -43,6 +45,10 @@ import { store } from './data/store.js';
       
     created() {
       this.getCards();
+      this.getArchetypes();
+    },
+    mounted() {
+      console.log(this.store.cardArchetypes);
     }
   }
 </script>
