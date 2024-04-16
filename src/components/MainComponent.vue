@@ -54,13 +54,7 @@ export default {
 
 // main style
 main {
-  background: rgb(180, 88, 43);
-  background: linear-gradient(
-    0deg,
-    rgba(180, 88, 43, 1) 88%,
-    rgba(0, 0, 0, 1) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background-image: url("/images/hieroglyphs-bg.png");
 }
 // container style
 .container {

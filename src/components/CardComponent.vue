@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow-lg" @mouseover="scaleUp" @mouseleave="scaleDown">
+  <div class="card" @mouseover="scaleUp" @mouseleave="scaleDown">
     <img :src="img[0].image_url" :alt="name" />
     <transition name="slide-fade">
       <div class="card-bodyl">
@@ -54,6 +54,7 @@ export default {
   width: 18rem;
   margin: 1rem;
   transition: transform 0.5s ease-out ;
+  box-shadow: 0 15px 15px #000;
 
   &:hover {
     transform: scale(1.05); ;
