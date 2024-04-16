@@ -36,6 +36,7 @@ import { store } from './data/store.js';
       .finally(() => {
         setTimeout(() => {
           this.store.loading = false;
+          this.getArchetypes();
         }, 10000);
       });
     },
