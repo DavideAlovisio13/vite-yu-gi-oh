@@ -1,7 +1,7 @@
 <template>
-  <HeaderComponent />
+  <HeaderComponent v-if="!store.loading" />
   <MainComponent v-if="!store.loading" />
-  <LoaderComponent v-else :class="{'d-none': store.cards.length > store.cards.length}"/>
+  <LoaderComponent v-else />
 </template>
 
 <script>
@@ -30,7 +30,10 @@ import { store } from './data/store.js';
       }).catch(error => {
         console.log(error);
       }).finally(() => {
-        this.store.loading = false;
+        setTimeout(() => {
+           this.store.loading = false;
+        }, 10000);
+       
       });
     },
     methods: {
@@ -38,6 +41,4 @@ import { store } from './data/store.js';
   }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss"></style>

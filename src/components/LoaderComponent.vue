@@ -16,13 +16,13 @@ export default {
       0.1,
       1000
     );
-    camera.position.z = 3;
+    camera.position.z = 2;
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.$refs.container.appendChild(renderer.domElement);
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("/public/images/tcg-banner-hero.webp");
+    const texture = textureLoader.load("/public/images/b7a452b1e41c58ccf367922b62b8a757.jpg");
     const material = new THREE.MeshBasicMaterial({ map: texture });
     material.userData = { elastic: true };
     const cube = new THREE.Mesh(geometry, material);
@@ -49,10 +49,6 @@ export default {
       y: 0,
       z: 0,
       ease: "elastic.out(1, 0.3)",
-      onComplete: () => {
-        this.$emit("loader");
-        animate();
-      }
     });
   },
 };
@@ -65,7 +61,7 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 10000;
+    z-index: 1000;
     overflow: hidden;
 }
 </style>
