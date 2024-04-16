@@ -93,7 +93,6 @@ export default {
   &:hover .card-bodyl {
     transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275);
     min-height: 410px;
-    max-width: 500px;
     max-height: 410px;
     opacity: 1;
   }
