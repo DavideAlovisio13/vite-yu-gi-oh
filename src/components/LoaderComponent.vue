@@ -27,7 +27,7 @@ export default {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshPhongMaterial({ transparent: true, opacity: 0.8 });
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('/public/images/b7a452b1e41c58ccf367922b62b8a757.jpg');
+    const texture = textureLoader.load('/images/b7a452b1e41c58ccf367922b62b8a757.jpg');
     material.map = texture;
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = -5;

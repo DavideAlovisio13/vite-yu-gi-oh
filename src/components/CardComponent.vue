@@ -69,7 +69,7 @@ export default {
       padding: 1rem 0;
       border-radius: 10px;
       border: 5px solid $color-black;
-      background-image: url("/public/images/87478-large_default.jpg");
+      background-image: url("/images/87478-large_default.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

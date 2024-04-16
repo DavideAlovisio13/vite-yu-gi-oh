@@ -1,8 +1,8 @@
 <template>
     <header class="position-relative">
-        <img src="/public/images/yu-gu-oh_preview_rev_1.png" alt="logo" />
-        <video src="/public/video/dust.mp4" autoplay muted loop class="position-absolute video1"></video>
-        <video src="/public/video/smoke.mp4" autoplay muted loop class="position-absolute video2"></video>
+        <img src="/images/yu-gu-oh_preview_rev_1.png" alt="logo" />
+        <video src="/video/dust.mp4" autoplay muted loop class="position-absolute video1"></video>
+        <video src="/video/smoke.mp4" autoplay muted loop class="position-absolute video2"></video>
     </header>
 </template>
 
@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/public/images/tcg-banner-hero.webp");
+    background-image: url("/images/tcg-banner-hero.webp");
     background-position: -320px;
     background-repeat: no-repeat;
     color: $color-black;
