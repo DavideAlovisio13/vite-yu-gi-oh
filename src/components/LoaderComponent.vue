@@ -24,6 +24,7 @@ export default {
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load("/public/images/tcg-banner-hero.webp");
     const material = new THREE.MeshBasicMaterial({ map: texture });
+    material.userData = { elastic: true };
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = -5;
     scene.add(cube);
@@ -48,6 +49,10 @@ export default {
       y: 0,
       z: 0,
       ease: "elastic.out(1, 0.3)",
+      onComplete: () => {
+        this.$emit("loader");
+        animate();
+      }
     });
   },
 };
@@ -55,11 +60,12 @@ export default {
 
 <style lang="scss">
 #container {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10000;
+    overflow: hidden;
 }
 </style>

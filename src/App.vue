@@ -1,18 +1,22 @@
 <template>
   <HeaderComponent />
-  <MainComponent />
+  <MainComponent v-if="!store.loading" />
+  <LoaderComponent v-else :class="{'d-none': store.cards.length > store.cards.length}"/>
 </template>
 
 <script>
+
 import MainComponent from './components/MainComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
+import LoaderComponent from "./components/LoaderComponent.vue";
 import axios from 'axios';
 import { store } from './data/store.js';
   export default {
     name: 'App',
     components: {
       HeaderComponent,
-      MainComponent
+      MainComponent,
+      LoaderComponent
     },
     data() {
       return {
