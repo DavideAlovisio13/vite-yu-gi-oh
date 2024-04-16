@@ -1,5 +1,6 @@
 <template>
   <main>
+    <ResultComponent />
     <div class="container">
       <div class="row">
         <div
@@ -26,10 +27,12 @@
 <script>
 import { store } from "../data/store.js";
 import CardComponent from "./CardComponent.vue";
+import ResultComponent from './ResultComponent.vue';
 export default {
   name: "MainComponent",
   components: {
-    CardComponent
+    CardComponent,
+    ResultComponent
   },
   data() {
     return {

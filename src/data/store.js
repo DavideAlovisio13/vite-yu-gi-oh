@@ -10,7 +10,7 @@ export const store = reactive({
     cardArchetypes: [],
     options: {
         params: {
-            num: 20,
+            num: 100,
             offset: 0,
         }
     },
