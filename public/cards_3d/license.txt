@@ -1,0 +1,11 @@
+Model Information:
+* title:	DAY03: CARDS-Yu-Gi-Oh!
+* source:	https://sketchfab.com/3d-models/day03-cards-yu-gi-oh-f3d0d1d4227d4583969021ff01db2ed7
+* author:	binrong (https://sketchfab.com/binrong)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "DAY03: CARDS-Yu-Gi-Oh!" (https://sketchfab.com/3d-models/day03-cards-yu-gi-oh-f3d0d1d4227d4583969021ff01db2ed7) by binrong (https://sketchfab.com/binrong) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

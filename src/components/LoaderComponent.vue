@@ -25,13 +25,30 @@ export default {
     this.$refs.container.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshPhongMaterial({ transparent: true, opacity: 0.8 });
+    const material = new THREE.MeshPhongMaterial({ transparent: true, opacity: 1 });
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('/images/b7a452b1e41c58ccf367922b62b8a757.jpg');
+    const texture = textureLoader.load('/images/Aigami_materializes_the_cube.webp.png');
     material.map = texture;
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = -5;
     scene.add(cube);
+
+    
+    scene.background = new THREE.Color(0x000000);
+
+    const plane = new THREE.Mesh(
+      new THREE.PlaneGeometry(10, 10),
+      new THREE.MeshPhongMaterial({ transparent: true, opacity: 0.9 })
+    );
+
+
+    const texture2 = textureLoader.load('/images/71DlY78-2ZL.jpg');
+    plane.material.map = texture2;
+    plane.receiveShadow = true;
+    plane.rotation.x = -Math.PI / 2;
+    plane.position.y = - 1.5;
+    scene.add(plane);
+
 
     const light = new THREE.HemisphereLight(0xffffff, 0xffffff, 5);
     light.position.set(1, 1, 10).normalize();
@@ -54,6 +71,7 @@ export default {
     };
     animate();
     };
+    
     animate();
 
 

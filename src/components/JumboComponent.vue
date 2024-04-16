@@ -43,11 +43,11 @@ export default {
   methods: {
     nextSlide() {
       this.currentSlide = (this.currentSlide + 1) % this.store.videos.length;
-      gsap.fromTo('.videos', {opacity: 0}, {opacity: 1, duration: 1});
+      gsap.fromTo('.videos', {opacity: 0}, {opacity: 1, duration: 2}, 1000);
     },
     prevSlide() {
       this.currentSlide = (this.currentSlide - 1 + this.store.videos.length) % this.store.videos.length;
-      gsap.fromTo('.videos', {opacity: 0}, {opacity: 1, duration: 1});
+      gsap.fromTo('.videos', {opacity: 0}, {opacity: 1, duration: 2},1000);
     }
   },
     mounted() {
@@ -57,11 +57,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.carousel-item {
-  height: 400px;
+@use "../assets/styles/partials/_variables.scss" as *;
+//main style
+main {
+    width: 100%;
 }
+
+// video style
 video {
-  display: inline-block;
+    object-fit: cover;
 }
 </style>

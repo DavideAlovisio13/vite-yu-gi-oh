@@ -4,7 +4,8 @@
         <video src="/video/dust.mp4" autoplay muted loop class="position-absolute video1"></video>
         <video src="/video/smoke.mp4" autoplay muted loop class="position-absolute video2"></video>
         <div>
-            <select class="form-select form-select-lg mb-3" aria-label="Large select example" @change="$emit('select-type',  $event.target.value)" v-model="store.cardArchetypes">
+            <label for="large-select" class="form-label text-white fw-bold">Seleziona un archetipo</label>
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example"  @change="$emit('select-type',  $event.target.value)" v-model="store.cardArchetypes">
                 <option :value="archetype" v-for="(archetype, index) in store.cardArchetypes" :key="index">{{ store.cardArchetypes[index].archetype_name }}</option>
             </select>
         </div>

@@ -55,13 +55,16 @@ export default {
 // main style
 main {
   background-image: url("/images/hieroglyphs-bg.png");
+  height: 100%;
 }
 // container style
 .container {
+  background-color: #E6E6E6;
+  box-shadow: 0 15px 15px #000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100% - 100px);
-  margin: 30px auto;
+  margin-top: 30px;
 }
 </style>

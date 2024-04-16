@@ -2,8 +2,8 @@
   <div class="card" @mouseover="scaleUp" @mouseleave="scaleDown">
     <img :src="img[0].image_url" :alt="name" />
     <transition name="slide-fade">
-      <div class="card-bodyl">
-        <ul  v-if="showCardBody">
+      <div class="card-bodyl text-center">
+        <ul v-if="showCardBody">
           <li><strong>Name:</strong> {{ name }}</li>
           <li><strong>Type:</strong> {{ type }}</li>
           <li><strong>Frame Type:</strong> {{ frameType }}</li>
@@ -12,7 +12,7 @@
           <li>
             <strong>Best Price:</strong> {{ price[0].cardmarket_price }} $
           </li>
-          <li><a href="#" class="btn btn-primary">Buy now</a></li>
+          <li><a href="#" class="btn btn-danger">Buy now</a></li>
         </ul>
       </div>
     </transition>
@@ -53,13 +53,11 @@ export default {
 .card {
   width: 18rem;
   margin: 1rem;
-  transition: transform 0.5s ease-out ;
+  transition: transform 0.5s ease-out;
   box-shadow: 0 15px 15px #000;
 
   &:hover {
-    transform: scale(1.05); ;
-    ;
-
+    transform: scale(1.05);
     img {
       height: 100%;
       object-fit: contain;
@@ -68,7 +66,7 @@ export default {
       position: absolute;
       top: 0px;
       color: azure;
-      padding: 1rem 0;
+      padding: 1.5rem 0.5rem;
       border-radius: 10px;
       border: 5px solid $color-black;
       background-image: url("/images/87478-large_default.jpg");
@@ -76,16 +74,21 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       height: 410px;
-      opacity: 0.9;
+      opacity: 1;
       overflow-y: auto;
       transition: opacity 0.5s ease-out;
-      
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       h5 {
         margin: 0.5rem;
       }
       ul {
         list-style: none;
         padding: 0;
+        backdrop-filter: blur(1px);
         li {
           margin: 0.5rem;
         }
@@ -93,5 +96,4 @@ export default {
     }
   }
 }
-
 </style>
