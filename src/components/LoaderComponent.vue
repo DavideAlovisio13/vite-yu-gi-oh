@@ -33,8 +33,8 @@ export default {
     cube.position.x = -5;
     scene.add(cube);
 
-    const light = new THREE.HemisphereLight(0xffffff, 10);
-    light.position.set(1, 1, 5).normalize();
+    const light = new THREE.HemisphereLight(0xffffff, 0xffffff, 5);
+    light.position.set(1, 1, 10).normalize();
     scene.add(light);
 
     window.addEventListener("resize", () => {
