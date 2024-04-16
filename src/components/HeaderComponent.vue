@@ -3,8 +3,8 @@
         <img src="/images/yu-gu-oh_preview_rev_1.png" alt="logo" />
         <video src="/video/dust.mp4" autoplay muted loop class="position-absolute video1"></video>
         <video src="/video/smoke.mp4" autoplay muted loop class="position-absolute video2"></video>
-        <select class="form-select form-select-lg mb-3" aria-label="Large select example" @change="$emit('select-type')" v-model="store.cardArchetypes">
-            <option value="archetypes" v-for="(archetype, index) in store.cardArchetypes" :key="index">{{ store.cardArchetypes[index].archetype_name }}</option>
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" @change="$emit('select-type',  $event.target.value)" v-model="store.cardArchetypes">
+            <option :value="archetype" v-for="(archetype, index) in store.cardArchetypes" :key="index">{{ store.cardArchetypes[index].archetype_name }}</option>
         </select>
     </header>
 </template>

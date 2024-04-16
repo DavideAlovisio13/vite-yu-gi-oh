@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent v-if="!store.loading" />
+  <HeaderComponent v-if="!store.loading"  @select-type="getCardsByArchetype" />
   <MainComponent v-if="!store.loading" />
   <LoaderComponent v-else />
 </template>
@@ -24,14 +24,29 @@ import { store } from './data/store.js';
       }
     },
     methods: {
+      getCardsByArchetype(archetype) {
+      this.store.loading = true;
+     axios.get(this.store.apiUrl + this.store.attributes.cards, { params: { archetype: archetype } })
+      .then(response => {
+        this.store.cards = response.data.data;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          this.store.loading = false;
+        }, 10000);
+      });
+    },
       getArchetypes() {
-        axios.get(this.store.apiUrl + this.store.attributes.cardArchetypes).then(res => {
+        axios.get(this.store.apiUrl + this.store.attributes.cardArchetypes,).then(res => {
         this.store.cardArchetypes = res.data;
       });
       },
-      getCards() {
+      getCards(opti) {
         this.store.loading = true;
-      axios.get(this.store.apiUrl + this.store.attributes.cards, this.store.options).then(response => {
+      axios.get(this.store.apiUrl + this.store.attributes.cards, opti).then(response => {
         this.store.cards = response.data.data;
       }).catch(error => {
         console.log(error);
@@ -42,13 +57,13 @@ import { store } from './data/store.js';
       });
       }
     },
-      
+
     created() {
-      this.getCards();
+      this.getCards(this.store.options);
       this.getArchetypes();
     },
     mounted() {
-      console.log(this.store.cardArchetypes);
+
     }
   }
 </script>
