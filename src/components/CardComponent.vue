@@ -1,7 +1,7 @@
 <template>
   <div class="card shadow-lg" @mouseover="scaleUp" @mouseleave="scaleDown">
     <img :src="img[0].image_url" :alt="name" />
-    <transition name="fade">
+    <transition name="slide-fade">
       <div v-if="showCardBody" class="card-bodyl">
         <h5 class="card-title">{{ name }}</h5>
         <ul>
@@ -64,9 +64,8 @@ export default {
     }
     .card-bodyl {
       padding: 1rem 0;
-      display: block;
+      border-radius: 10px;
       background-color: $color-bg;
-      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.1s; 
       max-height: 0;
       opacity: 0;
       overflow: hidden;
@@ -83,16 +82,20 @@ export default {
     }
   }
   &:hover .card-bodyl {
+    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275);
     max-height: 500px; 
     opacity: 1;
   }
 }
-.fade-enter-active,
+.fade-enter-active {
+  transition:all 0.3s ease-out;
+}
+
 .fade-leave-active {
-  transition: opacity 0.1s;
+  transform: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
+  transform: translate(20px);
 }
 </style>
