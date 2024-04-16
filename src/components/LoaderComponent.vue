@@ -3,7 +3,9 @@
 </template>
 
 <script>
+
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import gsap from "gsap";
 
 export default {
@@ -31,14 +33,18 @@ export default {
     cube.position.x = -5;
     scene.add(cube);
 
-    const light = new THREE.DirectionalLight(0xffffff, 5);
-    light.position.set(1, 1, 4).normalize();
+    const light = new THREE.HemisphereLight(0xffffff, 10);
+    light.position.set(1, 1, 5).normalize();
     scene.add(light);
+
     window.addEventListener("resize", () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     });
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+
     const animate = () => {
     const animate = () => {
         requestAnimationFrame(animate);

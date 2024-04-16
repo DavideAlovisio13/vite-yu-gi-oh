@@ -63,10 +63,8 @@ export default {
       object-fit: contain;
     }
     .card-bodyl {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 1rem 0;
+      display: block;
       background-color: $color-bg;
       transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.1s; 
       max-height: 0;
