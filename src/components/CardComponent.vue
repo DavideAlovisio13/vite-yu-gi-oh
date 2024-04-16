@@ -1,30 +1,49 @@
 <template>
-<div class="card">
+  <div class="card shadow-lg" @mouseover="scaleUp" @mouseleave="scaleDown">
     <img :src="img[0].image_url" :alt="name" />
-    <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <ul>
-        <li><strong>Type:</strong> {{ type }}</li>
-        <li><strong>Frame Type:</strong> {{ frameType }}</li>
-        <li><strong>Archetype:</strong> {{ archetype }}</li>
-        <li><strong>Description:</strong> {{ desc }}</li>
-        <li><strong>Best Price:</strong> {{ price[0].cardmarket_price }} $</li>
-      </ul>
-      <a href="#" class="btn btn-primary">Buy now</a>
-    </div>
+    <transition name="fade">
+      <div v-if="showCardBody" class="card-bodyl">
+        <h5 class="card-title">{{ name }}</h5>
+        <ul>
+          <li><strong>Type:</strong> {{ type }}</li>
+          <li><strong>Frame Type:</strong> {{ frameType }}</li>
+          <li><strong>Archetype:</strong> {{ archetype }}</li>
+          <li><strong>Description:</strong> {{ desc }}</li>
+          <li>
+            <strong>Best Price:</strong> {{ price[0].cardmarket_price }} $
+          </li>
+        </ul>
+        <a href="#" class="btn btn-primary">Buy now</a>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: "CardComponent",
-  props: ["id", "name", "type", "frameType", "desc", "img", "archetype", "price"],
+  props: [
+    "id",
+    "name",
+    "type",
+    "frameType",
+    "desc",
+    "img",
+    "archetype",
+    "price",
+  ],
   data() {
     return {
+      showCardBody: false,
     };
   },
   methods: {
-    
+    scaleUp() {
+      this.showCardBody = true;
+    },
+    scaleDown() {
+      this.showCardBody = false;
+    },
   },
 };
 </script>
@@ -32,17 +51,27 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/partials/_variables.scss" as *;
 .card {
-    width: 18rem;
-    margin: 1rem;
+  width: 18rem;
+  margin: 1rem;
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+
     img {
       height: 100%;
       object-fit: contain;
     }
-    .card-body {
+    .card-bodyl {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      background-color: $color-bg;
+      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.1s; 
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
       h5 {
         margin: 0.5rem;
       }
@@ -55,4 +84,17 @@ export default {
       }
     }
   }
+  &:hover .card-bodyl {
+    max-height: 500px; 
+    opacity: 1;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

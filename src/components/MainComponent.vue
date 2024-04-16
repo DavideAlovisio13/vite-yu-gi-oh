@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <div class="row">
+      <div class="row" v-if="!store.loading" >
         <div
           class="col-12 col-md-6 col-lg-3"
           v-for="(item, index) in store.cards"
@@ -19,6 +19,7 @@
           />
         </div>
       </div>
+      <LoaderComponent v-else :class="{'d-none': store.cards.length > store.cards.length}"/>
     </div>
   </main>
 </template>
@@ -26,10 +27,12 @@
 <script>
 import { store } from "../data/store.js";
 import CardComponent from "./CardComponent.vue";
+import LoaderComponent from "./LoaderComponent.vue";
 export default {
   name: "MainComponent",
   components: {
     CardComponent,
+    LoaderComponent
   },
   data() {
     return {
@@ -48,6 +51,7 @@ export default {
 
 // main style
 main {
+  padding: 100px 0;
   background: rgb(180, 88, 43);
   background: linear-gradient(
     0deg,

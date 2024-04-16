@@ -8,9 +8,6 @@ import MainComponent from './components/MainComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import axios from 'axios';
 import { store } from './data/store.js';
-import MainComponentVue from './components/MainComponent.vue';
-import CardComponentVue from './components/CardComponent.vue';
-import { createApp } from 'vue';
   export default {
     name: 'App',
     components: {
@@ -23,10 +20,16 @@ import { createApp } from 'vue';
       }
     },
     created() {
+      this.store.loading = true;
       axios.get(this.store.apiUrl).then(response => {
         this.store.cards = response.data.data;
-        // console.log(this.store.cards);
+      }).catch(error => {
+        console.log(error);
+      }).finally(() => {
+        this.store.loading = false;
       });
+    },
+    methods: {
     }
   }
 </script>
