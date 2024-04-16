@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent v-if="!store.loading" />
+  <HeaderComponent v-if="!store.loading" @select-type="getCards()"/>
   <MainComponent v-if="!store.loading" />
   <LoaderComponent v-else />
 </template>
@@ -23,9 +23,10 @@ import { store } from './data/store.js';
         store: store
       }
     },
-    created() {
-      this.store.loading = true;
-      axios.get(this.store.apiUrl).then(response => {
+    methods: {
+      getCards() {
+        this.store.loading = true;
+      axios.get(this.store.apiUrl, this.store.options).then(response => {
         this.store.cards = response.data.data;
       }).catch(error => {
         console.log(error);
@@ -33,10 +34,12 @@ import { store } from './data/store.js';
         setTimeout(() => {
            this.store.loading = false;
         }, 10000);
-       
       });
+      }
     },
-    methods: {
+      
+    created() {
+      this.getCards();
     }
   }
 </script>
