@@ -1,72 +1,78 @@
 <template>
-  <HeaderComponent v-if="!store.loading"  @select-type="getCardsByArchetype" />
+  <HeaderComponent v-if="!store.loading" @select-type="getCardsByArchetype" />
   <MainComponent v-if="!store.loading" />
   <LoaderComponent v-else />
 </template>
 
 <script>
-
-import MainComponent from './components/MainComponent.vue';
-import HeaderComponent from './components/HeaderComponent.vue';
+import MainComponent from "./components/MainComponent.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
 import LoaderComponent from "./components/LoaderComponent.vue";
-import axios from 'axios';
-import { store } from './data/store.js';
-  export default {
-    name: 'App',
-    components: {
-      HeaderComponent,
-      MainComponent,
-      LoaderComponent
-    },
-    data() {
-      return {
-        store: store
-      }
-    },
-    methods: {
-      getCardsByArchetype(archetype) {
+import axios from "axios";
+import { store } from "./data/store.js";
+export default {
+  name: "App",
+  components: {
+    HeaderComponent,
+    MainComponent,
+    LoaderComponent,
+  },
+  data() {
+    return {
+      store: store,
+    };
+  },
+
+  methods: {
+    getCardsByArchetype(archetype) {
       this.store.loading = true;
-     axios.get(this.store.apiUrl + this.store.attributes.cards, { params: { archetype: archetype } })
-      .then(response => {
-        this.store.cards = response.data.data;
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => {
-        setTimeout(() => {
-          this.store.loading = false;
-          this.getArchetypes();
-        }, 5000);
-      });
+      axios
+        .get(this.store.apiUrl + this.store.attributes.cards, {
+          params: { archetype: archetype },
+        })
+        .then((response) => {
+          this.store.cards = response.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            this.store.loading = false;
+            this.getArchetypes();
+          }, 5000);
+        });
     },
-      getArchetypes() {
-        axios.get(this.store.apiUrl + this.store.attributes.cardArchetypes,).then(res => {
-        this.store.cardArchetypes = res.data;
-      });
-      },
-      getCards(opti) {
-        this.store.loading = true;
-      axios.get(this.store.apiUrl + this.store.attributes.cards, opti).then(response => {
-        this.store.cards = response.data.data;
-      }).catch(error => {
-        console.log(error);
-      }).finally(() => {
-        setTimeout(() => {
-           this.store.loading = false;
-        }, 10000);
-      });
-      }
+    getArchetypes() {
+      axios
+        .get(this.store.apiUrl + this.store.attributes.cardArchetypes)
+        .then((res) => {
+          this.store.cardArchetypes = res.data;
+        });
     },
+    getCards(opti) {
+      this.store.loading = true;
+      axios
+        .get(this.store.apiUrl + this.store.attributes.cards, opti)
+        .then((response) => {
+          this.store.cards = response.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            this.store.loading = false;
+          }, 5000);
+        });
+    },
+  },
 
-    created() {
-      this.getCards(this.store.options);
-      this.getArchetypes();
-    },
-    mounted() {
-
-    }
+  created() {
+    this.getCards(this.store.options);
+    this.getArchetypes();
   }
+};
 </script>
 
 <style lang="scss"></style>

@@ -1,5 +1,6 @@
 <template>
   <main>
+    <JumboComponent />
     <ResultComponent />
     <div class="container">
       <div class="row">
@@ -28,11 +29,13 @@
 import { store } from "../data/store.js";
 import CardComponent from "./CardComponent.vue";
 import ResultComponent from './ResultComponent.vue';
+import JumboComponent from "./JumboComponent.vue";
 export default {
   name: "MainComponent",
   components: {
     CardComponent,
-    ResultComponent
+    ResultComponent,
+    JumboComponent
   },
   data() {
     return {
@@ -51,7 +54,6 @@ export default {
 
 // main style
 main {
-  padding: 100px 0;
   background: rgb(180, 88, 43);
   background: linear-gradient(
     0deg,
@@ -66,5 +68,6 @@ main {
   justify-content: center;
   align-items: center;
   height: calc(100% - 100px);
+  margin: 30px auto;
 }
 </style>

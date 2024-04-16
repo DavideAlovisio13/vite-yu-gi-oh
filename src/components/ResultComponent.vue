@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="text-center"><span class="badge text-bg-secondary">Sono disponibili {{ store.cards.length }} carte</span></h2>
+        <h2 class="text-center"><span class="badge text-bg-secondary m-5">Sono disponibili {{ store.cards.length }} carte</span></h2>
     </div>
 </template>
 

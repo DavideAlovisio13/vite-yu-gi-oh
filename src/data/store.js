@@ -14,6 +14,11 @@ export const store = reactive({
             offset: 0,
         }
     },
+    videos: [
+        { src: "/video/BLC1-2x1-IT.mp4", alt: "video1" },
+        { src: "/video/STAX-2x1-IT.mp4", alt: "video2" },
+        { src: "/public/video/Yugi-Kaiba-Accessories-2x1-IT.mp4", alt: "video3" }
+      ]
 
 });
 

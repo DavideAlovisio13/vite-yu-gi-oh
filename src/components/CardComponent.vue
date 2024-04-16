@@ -75,7 +75,7 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       height: 410px;
-      opacity: 1;
+      opacity: 0.9;
       overflow-y: auto;
       transition: opacity 0.5s ease-out;
       
