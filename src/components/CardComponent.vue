@@ -53,22 +53,26 @@ export default {
 .card {
   width: 18rem;
   margin: 1rem;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out ;
 
   &:hover {
-    transform: scale(1.1);
+    transform: rotateY(180deg), ;
+    ;
 
     img {
       height: 100%;
       object-fit: contain;
     }
     .card-bodyl {
+      position: absolute;
       padding: 1rem 0;
       border-radius: 10px;
+      border: 5px solid $color-black;
       background-color: $color-bg;
+      transform: rotateY(180deg);
       max-height: 0;
       opacity: 0;
-      overflow: hidden;
+      overflow-y: auto;
       h5 {
         margin: 0.5rem;
       }
@@ -83,19 +87,10 @@ export default {
   }
   &:hover .card-bodyl {
     transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    max-height: 500px; 
+    max-width: 500px;
+    max-height: 410px;
     opacity: 1;
   }
 }
-.fade-enter-active {
-  transition:all 0.3s ease-out;
-}
 
-.fade-leave-active {
-  transform: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.fade-enter,
-.fade-leave-to {
-  transform: translate(20px);
-}
 </style>
