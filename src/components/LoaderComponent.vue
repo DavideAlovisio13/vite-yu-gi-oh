@@ -17,17 +17,23 @@ export default {
       1000
     );
     camera.position.z = 2;
-    const renderer = new THREE.WebGLRenderer();
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.$refs.container.appendChild(renderer.domElement);
+
     const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshPhongMaterial({ transparent: true, opacity: 0.8 });
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("/public/images/b7a452b1e41c58ccf367922b62b8a757.jpg");
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    material.userData = { elastic: true };
+    const texture = textureLoader.load('/public/images/b7a452b1e41c58ccf367922b62b8a757.jpg');
+    material.map = texture;
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = -5;
     scene.add(cube);
+
+    const light = new THREE.DirectionalLight(0xffffff, 5);
+    light.position.set(1, 1, 4).normalize();
+    scene.add(light);
     window.addEventListener("resize", () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -43,6 +49,8 @@ export default {
     animate();
     };
     animate();
+
+
     gsap.to(cube.position, {
       duration: 1,
       x: 0,
@@ -50,6 +58,7 @@ export default {
       z: 0,
       ease: "elastic.out(1, 0.3)",
     });
+    
   },
 };
 </script>
