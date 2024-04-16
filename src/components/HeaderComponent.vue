@@ -13,10 +13,12 @@
 </template>
 
 <script>
+import {store } from '../data/store.js';
     export default {
         name: 'HeaderComponent',
         data() {
             return {
+                store: store
             }
         }
     }

@@ -24,9 +24,12 @@ import { store } from './data/store.js';
       }
     },
     methods: {
+      getArchetypes() {
+        
+      },
       getCards() {
         this.store.loading = true;
-      axios.get(this.store.apiUrl, this.store.options).then(response => {
+      axios.get(this.store.apiUrl + this.store.attributes.cards, this.store.options).then(response => {
         this.store.cards = response.data.data;
       }).catch(error => {
         console.log(error);

@@ -1,7 +1,11 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-    apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php",
+    apiUrl: "https://db.ygoprodeck.com/api/v7/",
+    attributes: {
+        cards: "cardinfo.php",
+        cardArchetypes: "archetypes.php"
+    },
     cards: [],
     cardArchetypes: [],
     options: {
@@ -9,6 +13,7 @@ export const store = reactive({
             num: 20,
             offset: 0,
         }
-    }
+    },
+
 });
 
