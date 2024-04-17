@@ -27,7 +27,7 @@ export default {
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshPhongMaterial({ transparent: true, opacity: 1 });
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('/images/Aigami_materializes_the_cube.webp.png');
+    const texture = textureLoader.load('/images/Aigami_materializes_the_cube.webp');
     material.map = texture;
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = -5;
